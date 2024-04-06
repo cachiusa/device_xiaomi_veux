@@ -19,15 +19,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-service
 
 PRODUCT_PACKAGES += \
-    bootctrl.
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl. \
-    libgptutils \
-    libz \
-    libcutils
-
-PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
     update_engine \
@@ -50,6 +41,11 @@ PRODUCT_PACKAGES += \
 
 # copy vendor_boot fstab to first_stage_ramdisk
 PRODUCT_COPY_FILES += \
-	$(DEVICE_PATH)/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+	$(DEVICE_PATH)/fstab.default:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
 # end: vendor_boot
-#
+
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl-qti \
+    android.hardware.boot@1.2-impl-qti.recovery \
+    android.hardware.boot@1.2-service
