@@ -1,10 +1,17 @@
 #
 # Copyright (C) 2024 The Android Open Source Project
-# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
 
-add_lunch_combo omni_veux-user
-add_lunch_combo omni_veux-userdebug
-add_lunch_combo omni_veux-eng
+export ALLOW_MISSING_DEPENDENCIES=true
+export LC_ALL="C"
+
+export FOX_BUILD_DEVICE=veux
+export TARGET_DEVICE_ALT=peux
+export FOX_TARGET_DEVICES="veux,peux"
+
+export FOX_VENDOR_BOOT_RECOVERY=1
+export FOX_AB_DEVICE=1
+export FOX_VIRTUAL_AB_DEVICE=1
+export OF_STATUS_H=104
+export OF_SCREEN_H=2400
+export OF_DYNAMIC_FULL_SIZE=9122611200
+export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
