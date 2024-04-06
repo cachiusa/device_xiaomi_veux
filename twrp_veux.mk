@@ -13,13 +13,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from veux device
-$(call inherit-product, device/unknown/veux/device.mk)
+$(call inherit-product, device/xiaomi/veux/device.mk)
 
 PRODUCT_DEVICE := veux
 PRODUCT_NAME := twrp_veux
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi Note 11 Pro 5G
-PRODUCT_MANUFACTURER := unknown
+PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-unknown
 
