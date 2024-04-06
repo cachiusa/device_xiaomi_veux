@@ -33,3 +33,23 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+# vendor_boot
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
+PRODUCT_PACKAGES += \
+	linker.vendor_ramdisk \
+	e2fsck.vendor_ramdisk \
+	resize2fs.vendor_ramdisk \
+	fsck.vendor_ramdisk \
+	tune2fs.vendor_ramdisk
+
+# copy vendor_boot fstab to first_stage_ramdisk
+PRODUCT_COPY_FILES += \
+	$(DEVICE_PATH)/recovery.fstab:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.default
+# end: vendor_boot
+#
