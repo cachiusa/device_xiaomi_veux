@@ -15,6 +15,9 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Inherit from veux device
 $(call inherit-product, device/xiaomi/veux/device.mk)
 
+# Inherit any OrangeFox-specific settings
+$(call inherit-product-if-exists, $(DEVICE_PATH)/fox_veux.mk)
+
 PRODUCT_DEVICE := veux
 PRODUCT_NAME := twrp_veux
 PRODUCT_BRAND := Redmi
