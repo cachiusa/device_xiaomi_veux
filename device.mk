@@ -7,7 +7,6 @@
 
 LOCAL_PATH := device/xiaomi/veux
 # A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -23,9 +22,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
-
-# Enable project quotas and casefolding for emulated storage without sdcardfs
-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Boot control
 PRODUCT_PACKAGES += \
@@ -102,13 +98,10 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti
+    android.hardware.usb@1.3-service-qti \
     init.qcom.usb.rc \
     init.qcom.usb.sh
 
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
-
-# Inherit from proprietary targets
-$(call inherit-product, vendor/xiaomi/veux/veux-vendor.mk)
